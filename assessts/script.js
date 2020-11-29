@@ -13,9 +13,13 @@ function containerDraw() {
         $("#calendar-container").append(row)
 
         let timeBox = $(row).append('<div class="col-1 time-box"></div>')
-        let eventBox = $(row).append('<div class="col-10 future-times"></div>')
-        //let eventBoxInput = $(eventBox).append('<input type="text class="inputtext">')
+        let eventBox = $('<div class="col-10 future-times"></div>')
+        $(row).append(eventBox)
+        let eventBoxInput = $('<input type="text" id="fname" class="text-entry" name="fname">') 
+        $(eventBox).append(eventBoxInput)       
         let saveBox = $(row).append('<div class="col-1 save-items"></div>')
+
+
     }
 
 
