@@ -78,3 +78,7 @@ textarea{
   background-color: lightskyblue;
   content:url(/assessts/saveIcon.png);
 }
+
+.time-box {
+  border: 5px solid black;
+}
