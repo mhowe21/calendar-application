@@ -15,7 +15,7 @@ function containerDraw() {
         let timeBox = $(row).append('<div class="col-1 time-box"></div>')
         let eventBox = $('<div class="col-10 future-times"></div>')
         $(row).append(eventBox)
-        let eventBoxInput = $('<input type="text" id="fname" class="text-entry" name="fname">') 
+        let eventBoxInput = $('<input type="text" id="text" class="text-entry" name="text">') 
         $(eventBox).append(eventBoxInput)       
         let saveBox = $(row).append('<div class="col-1 save-items"></div>')
 
