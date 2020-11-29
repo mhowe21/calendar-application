@@ -13,8 +13,8 @@ function containerDraw() {
         $("#calendar-container").append(row)
 
         $(row).append('<div class="col-1"></div>')
-        $(row).append('<div class="col-10"></div>')
-        $(row).append('<div> class="col-1"></div>')
+        $(row).append('<div class="col-10 future-times"></div>')
+        $(row).append('<div class="col-1 save-items"></div>')
     }
 
 

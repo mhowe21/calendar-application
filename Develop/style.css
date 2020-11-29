@@ -69,3 +69,11 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+.future-times {
+  background-color: lawngreen;
+}
+
+.save-items {
+  background-color: lightskyblue;
+}
