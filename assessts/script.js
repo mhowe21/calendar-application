@@ -33,6 +33,8 @@ function containerDraw() {
         if (current > i) {
             //$(eventBox).addClass("future-times")
             $(eventBox).addClass("prior-hour")
+        } else if (current == i) {
+            $(eventBox).addClass("current-hour")
         } else {
             $(eventBox).addClass("future-times")
         }
