@@ -44,22 +44,30 @@ function containerDraw() {
 
 
     }
-    saveEventListiners()
+    
+    saveEvents()
 
 }
 
 
-function saveEventListiners() {
+function saveEvents() {
+    let valueStores = []
+
     $(".save-items").on("click", function () {
         console.log("you hit save on " + String(this))
         //alert("Calendar Saved!")
         //store any saved items.
         
-        var map = {};
+        
         $(".text-entry")
         let calArray = Array.from($(".text-entry"))
 
-        localStorage.setItem(today,calArray)     
+        for(const elm of calArray){
+            valueStores.push(elm.value)
+        }
+
+        console.log(valueStores)
+        localStorage.setItem(today,valueStores)     
 
 
     });
