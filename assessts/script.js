@@ -11,6 +11,8 @@ window.onload = function () {
 function containerDraw() {
 
     for (let i = 0; i < 24; i++) {
+        let current = moment().format("H")
+        console.log(current)
 
         // make elements
         let row = $('<div class="row"></div>')
@@ -24,12 +26,10 @@ function containerDraw() {
         $(row).append(eventBox)
         let eventBoxInput = $('<input type="text" class="text-entry" name="text">')
         $(eventBox).append(eventBoxInput)
-        let saveBox = $(row).append('<div class="col-1 save-items"></div>')
+        let saveBox = $(row).append(`<div class="col-1 save-items" id="save-icon-${i}"></div>`)
 
-        // if past the current hour mark it 
-        let current = moment().format("H")
-        console.log(current)
-
+             
+        // color code hours
         if (current > i) {
             //$(eventBox).addClass("future-times")
             $(eventBox).addClass("prior-hour")
@@ -38,5 +38,18 @@ function containerDraw() {
         } else {
             $(eventBox).addClass("future-times")
         }
+
+
     }
+    saveEventListiners()
+
+}
+
+
+function saveEventListiners(){
+    $(".save-items").on("click", function(){
+        console.log("you hit save on " + String(this))
+        alert("Calendar Saved!")
+
+    });
 }
