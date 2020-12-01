@@ -77,7 +77,7 @@ textarea {
 
 .save-items {
   background-color: lightskyblue;
-  content: url(/assessts/saveIcon.png);
+  content: url(./saveIcon.png);
 }
 
 .time-box {
