@@ -3,12 +3,17 @@ console.log(today)
 
 window.onload = function () {
 
-
+    let storage = localStorage.getItem(today)
     $("#currentDay").text(today)
     // let start = moment().startOf("day")
     // console.log(start.format("H"))
-    
+
     containerDraw()
+
+    if (storage != null) {
+        retriveSavedCalendar(storage)
+    }
+
 }
 
 function containerDraw() {
@@ -44,11 +49,10 @@ function containerDraw() {
 
 
     }
-    
+
     saveEvents()
 
 }
-
 
 function saveEvents() {
     let valueStores = []
@@ -57,24 +61,31 @@ function saveEvents() {
         console.log("you hit save on " + String(this))
         //alert("Calendar Saved!")
         //store any saved items.
-        
-        
-        $(".text-entry")
-        let calArray = Array.from($(".text-entry"))
 
-        for(const elm of calArray){
+
+        let calArray = document.querySelectorAll(".text-entry")
+
+        for (const elm of calArray) {
             valueStores.push(elm.value)
         }
 
-        console.log(valueStores)
-        localStorage.setItem(today,valueStores)     
+        // local storage only takes string so we are going to have to split it back out into an array
+        localStorage.setItem(today, String(valueStores))
 
 
     });
 }
 
-function retriveSavedCalendar() {
-    localStorage.getItem(today)
+function retriveSavedCalendar(storage) {
+    let textArray = document.querySelectorAll(".text-entry")
+    let storageArray = storage.split(",")
+
+    console.log(storageArray)
+
+
+    for (let i = 0; i < textArray.length; i++) {
+        textArray[i].value = storageArray[i]
+    }
 
 
 }
