@@ -69,8 +69,12 @@ function saveEvents() {
             valueStores.push(elm.value)
         }
 
+        let string = JSON.stringify(valueStores)
+        //string = string.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g)
+
+        console.log(string)
         // local storage only takes string so we are going to have to split it back out into an array
-        localStorage.setItem(today, String(valueStores))
+        localStorage.setItem(today, string)
 
 
     });
@@ -78,13 +82,18 @@ function saveEvents() {
 
 function retriveSavedCalendar(storage) {
     let textArray = document.querySelectorAll(".text-entry")
-    let storageArray = storage.split(",")
+    //let storageArray = storage.split(",")
+    storageArray = JSON.parse(storage)
 
     console.log(storageArray)
 
 
     for (let i = 0; i < textArray.length; i++) {
-        textArray[i].value = storageArray[i]
+        
+            
+            textArray[i].value = storageArray[i]
+
+        
     }
 
 
