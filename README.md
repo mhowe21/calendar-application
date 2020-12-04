@@ -3,7 +3,13 @@
 ## In this excersise we created a simple day planner application that allows users to input upcomming events. 
 ![alt example image](assessts\example-planner.png)
 
-### Acceptance Criteria 
+
+### Usage:
+- Select a date from the date picker (default is today)
+- Add an event during the selected time. 
+- Hit save to save your event
+
+### Acceptance Criteria: 
 - GIVEN I am using a daily planner to create a schedule
 - WHEN I open the planner
 - THEN the current day is displayed at the top of the calendar 
