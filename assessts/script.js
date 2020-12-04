@@ -1,22 +1,40 @@
-let today = moment().format("MMMM Do YYYY");
-console.log(today)
+let today = moment().format("M/DD/YYYY");
+
 
 window.onload = function () {
 
-    let storage = localStorage.getItem(today)
-    $("#currentDay").text(today)
+    //let storage = localStorage.getItem(today)
+    $("#currentDay").text(moment().format("MMMM Do YYYY"))
 
-    containerDraw()
+    console.log(today)
+    containerDraw(today)
 
-    if (storage != null) {
-        retriveSavedCalendar(storage)
-    }
+    
+    retriveSavedCalendar(today)
+    
+    $("#datepicker").datepicker();
+
+    $("#datepicker").on("change", function () {
+        let Date = $("#datepicker").datepicker("getDate");
+        //console.log(Date)
+        today = moment(Date).format("M/DD/YYYY")
+        console.log(today)
+        selectDate(today)
+
+    })
+
 
 }
 
-function containerDraw() {
-    let current = moment().format("H")
-    console.log(current)
+function containerDraw(day) {
+
+    if (day === moment().format("M/DD/YYYY")) {
+        current = moment().format("H")
+    } else {
+        current = 0
+    }
+
+
     for (let i = 0; i < 24; i++) {
 
 
@@ -48,11 +66,11 @@ function containerDraw() {
 
     }
 
-    saveEvents()
+    saveEvents(day)
 
 }
 
-function saveEvents() {
+function saveEvents(day) {
     let valueStores = []
 
     $(".save-items").on("click", function () {
@@ -66,14 +84,17 @@ function saveEvents() {
 
         let string = JSON.stringify(valueStores)
 
-        localStorage.setItem(today, string)
+        localStorage.setItem(day, string)
 
         alert("Calendar Saved")
     });
 }
 
-function retriveSavedCalendar(storage) {
+function retriveSavedCalendar(day) {
     let textArray = document.querySelectorAll(".text-entry")
+    // get storage
+    let storage = localStorage.getItem(day)
+
     // parse back out json array. 
     storageArray = JSON.parse(storage)
 
@@ -83,4 +104,10 @@ function retriveSavedCalendar(storage) {
     for (let i = 0; i < textArray.length; i++) {
         textArray[i].value = storageArray[i]
     }
+}
+
+function selectDate(day) {
+    $("#calendar-container").empty()
+    containerDraw(day)
+    retriveSavedCalendar(day)
 }

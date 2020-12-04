@@ -102,3 +102,8 @@ textarea {
 .current-hour {
   background-color: orange;
 }
+
+#datepicker {
+  display: flex;
+  justify-content: center;
+}
