@@ -9,9 +9,9 @@ window.onload = function () {
     console.log(today)
     containerDraw(today)
 
-    
+
     retriveSavedCalendar(today)
-    
+
     $("#datepicker").datepicker();
 
     $("#datepicker").on("change", function () {
@@ -22,8 +22,6 @@ window.onload = function () {
         selectDate(today)
 
     })
-
-
 }
 
 function containerDraw(day) {
@@ -62,10 +60,7 @@ function containerDraw(day) {
         } else {
             $(eventBox).addClass("future-times")
         }
-
-
     }
-
     saveEvents(day)
 
 }
@@ -100,10 +95,12 @@ function retriveSavedCalendar(day) {
 
     console.log(storageArray)
 
-
-    for (let i = 0; i < textArray.length; i++) {
-        textArray[i].value = storageArray[i]
+    if (storage != null) {
+        for (let i = 0; i < textArray.length; i++) {
+            textArray[i].value = storageArray[i]
+        }
     }
+
 }
 
 function selectDate(day) {
