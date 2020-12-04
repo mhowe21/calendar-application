@@ -1,7 +1,7 @@
 # Work Day Scheduler
 
 ## In this excersise we created a simple day planner application that allows users to input upcomming events. 
-![alt example image](assessts\example-planner.png)
+![alt example image](https://github.com/mhowe21/day-scheduler/blob/master/assessts/example-planner.png)
 
 
 ### Usage:
