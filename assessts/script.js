@@ -66,11 +66,9 @@ function containerDraw(day) {
 }
 
 function saveEvents(day) {
-    let valueStores = []
-
+    
     $(".save-items").on("click", function () {
-        console.log("you hit save on " + String(this))
-
+        let valueStores = []
         let calArray = document.querySelectorAll(".text-entry")
 
         for (const elm of calArray) {
