@@ -77,12 +77,19 @@ textarea {
 
 .save-items {
   background-color: lightskyblue;
-  content: url(./saveIcon.png);
+  content: url(./save.svg);
+  border-radius: 5%;
+}
+
+.save-items:hover {
+  background-color: violet;
+  transition: all .3s ease-in-out;
 }
 
 .time-box {
   border: 5px solid black;
 }
+
 
 .text-entry {
   background-color: transparent;
