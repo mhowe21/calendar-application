@@ -4,7 +4,7 @@ let today = moment().format("M/DD/YYYY");
 window.onload = function () {
 
     //let storage = localStorage.getItem(today)
-    $("#currentDay").text(moment().format("MMMM Do YYYY"))
+    $("#currentDay").text(`Today is: ${moment().format("MMMM Do YYYY")}`)
 
     console.log(today)
     containerDraw(today)
