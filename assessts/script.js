@@ -5,9 +5,7 @@ window.onload = function () {
 
     let storage = localStorage.getItem(today)
     $("#currentDay").text(today)
-    // let start = moment().startOf("day")
-    // console.log(start.format("H"))
-
+    
     containerDraw()
 
     if (storage != null) {
@@ -59,20 +57,14 @@ function saveEvents() {
 
     $(".save-items").on("click", function () {
         console.log("you hit save on " + String(this))
-        //alert("Calendar Saved!")
-        //store any saved items.
-
-
+        
         let calArray = document.querySelectorAll(".text-entry")
 
         for (const elm of calArray) {
             valueStores.push(elm.value)
         }
 
-        // local storage only takes strings so we convert the object to a string and then parse it back out later
         let string = JSON.stringify(valueStores)
-
-        console.log(string)
 
         localStorage.setItem(today, string)
 
